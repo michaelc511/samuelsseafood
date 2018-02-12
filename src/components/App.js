@@ -64,7 +64,7 @@ class App extends React.Component {
     return (
       <div className="catch-of-the-day">
         <div className="menu">
-          <Header tagline="Samuel's Seafood" />
+          <Header tagline="Sam's Seafood" />
           <ul className="list-of-fishes">
             {// use 'Object.keys' to loop the Object get the array for looping
             Object.keys(this.state.fishes) //
