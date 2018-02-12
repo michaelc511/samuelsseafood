@@ -4,6 +4,7 @@ import { formatPrice } from '../helpers';
 class Fish extends React.Component {
   render() {
     const { details, index } = this.props;
+    /// same as ... const details = this.props.details
 
     // set the text based on status
     const isAvailable = details.status === 'available';
@@ -17,8 +18,9 @@ class Fish extends React.Component {
           <span className="price">{formatPrice(details.price)}</span>
         </h3>
         <p>{details.desc}</p>
-        <button onClick={() => this.props.addToOrder(index)} disabled={!isAvailable}>
-          {' '}
+        <button
+          onClick={() => this.props.addToOrder(index)} //
+          disabled={!isAvailable}>
           {buttonText}
         </button>
         {/* 🐟 */}

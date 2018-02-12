@@ -6,7 +6,7 @@ import Fish from './Fish';
 
 import sampleFishes from '../sample-fishes';
 
-/// 2/11/18 Finished 16
+/// 2/12/18 at 17
 
 class App extends React.Component {
   // constructor
@@ -17,7 +17,7 @@ class App extends React.Component {
     this.addFish = this.addFish.bind(this);
     // bind 'loadSamples' function
     this.loadSamples = this.loadSamples.bind(this);
-
+    // bind 'addToOrder' function
     this.addToOrder = this.addToOrder.bind(this);
 
     // es6 STATE set up getinitialState
@@ -48,12 +48,14 @@ class App extends React.Component {
     });
   }
 
-  // 'addToOrder' method
+  // 'addToOrder' method ///////////////////////////
   addToOrder(key) {
     // take a copy of our state
     const order = { ...this.state.order };
+
     // update or add the new number of fish ordered
     order[key] = order[key] + 1 || 1;
+
     // update our state
     this.setState({ order });
   }
@@ -62,7 +64,7 @@ class App extends React.Component {
     return (
       <div className="catch-of-the-day">
         <div className="menu">
-          <Header tagline="Fresh Seafood Market!" />
+          <Header tagline="Samuel's Seafood" />
           <ul className="list-of-fishes">
             {// use 'Object.keys' to loop the Object get the array for looping
             Object.keys(this.state.fishes) //
@@ -78,7 +80,11 @@ class App extends React.Component {
           </ul>
         </div>
 
-        <Order />
+        {/* pass the fishes and order state to 'Order' */}
+        <Order
+          fishes={this.state.fishes} //
+          order={this.state.order}
+        />
         {/* Passing function 'addFish' and 'loadSamples' to 'Inventory' */}
         <Inventory addFish={this.addFish} loadSamples={this.loadSamples} />
       </div>
